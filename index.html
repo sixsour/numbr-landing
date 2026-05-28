@@ -17,21 +17,43 @@
 
   <!-- ═══════════════════ HERO ═══════════════════ -->
   <section class="hero" id="hero">
+
+    <!-- Aurora background -->
+    <div class="hero-aurora" aria-hidden="true">
+      <div class="aurora-orb orb-1"></div>
+      <div class="aurora-orb orb-2"></div>
+      <div class="aurora-orb orb-3"></div>
+      <div class="aurora-orb orb-4"></div>
+      <div class="aurora-noise"></div>
+    </div>
+
     <div class="hero-content">
       <h1 class="hero-logo">Numbr</h1>
       <p class="hero-subtitle">Умный учёт расходов в твоём мессенджере</p>
 
-      <div class="mic-wrapper" id="mic-hero">
-        <div class="mic-glow"></div>
-        <div class="mic-icon" id="mic-icon">
+      <!-- Mic button with pulse rings -->
+      <div class="mic-btn-wrap" id="mic-hero">
+        <div class="pulse-ring pulse-ring-1"></div>
+        <div class="pulse-ring pulse-ring-2"></div>
+        <div class="pulse-ring pulse-ring-3"></div>
+        <button class="mic-btn" aria-label="Голосовой ввод">
           <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
             <path d="M5 11a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <line x1="9" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-        </div>
+        </button>
       </div>
+
+      <!-- CTA -->
+      <a href="https://t.me/numbr_ai_bot" class="hero-cta" target="_blank" rel="noopener noreferrer">
+        <svg class="hero-cta-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Открыть в Telegram
+      </a>
+      <p class="hero-cta-sub">Бесплатно · Без регистрации</p>
     </div>
 
     <div class="scroll-hint">
