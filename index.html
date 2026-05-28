@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numbr — Умный учёт расходов в Telegram</title>
+  <meta name="description" content="Голосовой учёт расходов с AI-категоризацией прямо в Telegram. Скажи — и расход готов." />
+  <meta property="og:title" content="Numbr — Умный учёт расходов в Telegram" />
+  <meta property="og:description" content="Голосовой учёт расходов с AI-категоризацией прямо в Telegram." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <h1 class="hero-logo">Numbr</h1>
+      <p class="hero-subtitle">Умный учёт расходов в твоём мессенджере</p>
+
+      <div class="mic-wrapper" id="mic-hero">
+        <div class="mic-glow"></div>
+        <div class="mic-icon" id="mic-icon">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
+            <path d="M5 11a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="9" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 5v14M5 12l7 7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ VOICE ═══════════════════ -->
+  <section class="voice-section" id="voice">
+    <div class="voice-label">Скажи — и расход готов</div>
+
+    <div class="voice-stage" id="voice-stage">
+      <!-- ripple rings -->
+      <div class="ripple-ring ring-1" id="ring1"></div>
+      <div class="ripple-ring ring-2" id="ring2"></div>
+      <div class="ripple-ring ring-3" id="ring3"></div>
+
+      <!-- mic (cloned visually, positioned in stage) -->
+      <div class="stage-mic" id="stage-mic">
+        <div class="mic-glow stage-glow"></div>
+        <div class="mic-icon stage-mic-icon" id="stage-mic-icon">
+          <!-- mic svg default -->
+          <svg class="svg-mic" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
+            <path d="M5 11a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="9" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <!-- mic-off svg (hidden initially) -->
+          <svg class="svg-mic-off" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
+            <line x1="2" y1="2" x2="22" y2="22" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <path d="M18.89 13.23A7.12 7.12 0 0 0 19 12" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <path d="M5 11a7 7 0 0 0 12.93 2.7" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <path d="M15 9.34V5a3 3 0 0 0-5.68-1.33" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <path d="M9 9v3a3 3 0 0 0 5.12 2.12" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="19" x2="12" y2="22" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+            <line x1="8" y1="22" x2="16" y2="22" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- recording UI -->
+      <div class="recording-ui" id="recording-ui">
+        <div class="waveform" id="waveform">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+        <div class="typewriter" id="typewriter"></div>
+      </div>
+
+      <!-- processing -->
+      <div class="processing-ui" id="processing-ui">
+        <div class="spinner"></div>
+        <span class="processing-text">Анализирую...</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ RESULT ═══════════════════ -->
+  <section class="result-section" id="result">
+    <p class="result-label">Голос → расход за секунду</p>
+
+    <div class="expense-card" id="expense-card">
+      <div class="card-left">
+        <div class="category-badge">🛒</div>
+        <div class="card-info">
+          <div class="card-category">Продукты</div>
+          <div class="card-comment">«потратил на продукты»</div>
+        </div>
+      </div>
+      <div class="card-amount">500 ₽</div>
+    </div>
+
+    <div class="card-actions" id="card-actions">
+      <button class="btn-cancel">Отмена</button>
+      <button class="btn-add">Добавить</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CATEGORIES ═══════════════════ -->
+  <section class="categories-section" id="categories">
+    <h2 class="categories-title">20 категорий. Любая — за один свайп.</h2>
+
+    <div class="carousel-wrapper">
+      <div class="carousel-fade-left"></div>
+      <div class="carousel-track" id="carousel-track">
+        <div class="chip chip-active" data-color="#7B61FF,#9B59FF">
+          <span class="chip-icon">🛒</span>
+          <span class="chip-label">Продукты</span>
+        </div>
+        <div class="chip" data-color="#3B82F6,#60A5FA">
+          <span class="chip-icon">🚗</span>
+          <span class="chip-label">Транспорт</span>
+        </div>
+        <div class="chip" data-color="#F97316,#FB923C">
+          <span class="chip-icon">🍕</span>
+          <span class="chip-label">Еда</span>
+        </div>
+        <div class="chip" data-color="#22C55E,#4ADE80">
+          <span class="chip-icon">💊</span>
+          <span class="chip-label">Здоровье</span>
+        </div>
+        <div class="chip" data-color="#D85FA0,#F472B6">
+          <span class="chip-icon">🎮</span>
+          <span class="chip-label">Развлечения</span>
+        </div>
+      </div>
+      <div class="carousel-fade-right"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ CTA ═══════════════════ -->
+  <section class="cta-section" id="cta">
+    <div class="cta-blobs">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="cta-content" id="cta-content">
+      <div class="tg-badge">
+        <svg class="tg-logo" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.56-.46.7-.93.43l-2.57-1.9-1.24 1.2c-.14.14-.26.26-.53.26l.19-2.72 4.95-4.47c.22-.19-.05-.3-.33-.11l-6.12 3.85-2.63-.82c-.57-.18-.58-.57.12-.84l10.25-3.95c.48-.17.9.12.74.85z" fill="#2AABEE"/>
+        </svg>
+        <span>Официальное Telegram Mini App</span>
+      </div>
+
+      <a href="https://t.me/numbr_bot" class="cta-button" target="_blank" rel="noopener noreferrer">
+        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Открыть Numbr в Telegram
+      </a>
+
+      <p class="cta-sub">Бесплатно · Работает внутри Telegram · Без регистрации</p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ FOOTER ═══════════════════ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">Numbr</span>
+      <a href="https://t.me/numbr_bot" class="footer-link" target="_blank" rel="noopener noreferrer">@numbr_bot</a>
+      <span class="footer-sep">·</span>
+      <span class="footer-copy">© 2025 Numbr</span>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
