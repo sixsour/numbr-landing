@@ -46,23 +46,19 @@
     <div class="voice-label">Скажи — и расход готов</div>
 
     <div class="voice-stage" id="voice-stage">
-      <!-- ripple rings -->
       <div class="ripple-ring ring-1" id="ring1"></div>
       <div class="ripple-ring ring-2" id="ring2"></div>
       <div class="ripple-ring ring-3" id="ring3"></div>
 
-      <!-- mic (cloned visually, positioned in stage) -->
       <div class="stage-mic" id="stage-mic">
         <div class="mic-glow stage-glow"></div>
         <div class="mic-icon stage-mic-icon" id="stage-mic-icon">
-          <!-- mic svg default -->
           <svg class="svg-mic" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <rect x="9" y="2" width="6" height="11" rx="3" fill="currentColor"/>
             <path d="M5 11a7 7 0 0 0 14 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <line x1="12" y1="18" x2="12" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             <line x1="9" y1="22" x2="15" y2="22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
           </svg>
-          <!-- mic-off svg (hidden initially) -->
           <svg class="svg-mic-off" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none">
             <line x1="2" y1="2" x2="22" y2="22" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
             <path d="M18.89 13.23A7.12 7.12 0 0 0 19 12" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
@@ -75,7 +71,6 @@
         </div>
       </div>
 
-      <!-- recording UI -->
       <div class="recording-ui" id="recording-ui">
         <div class="waveform" id="waveform">
           <span class="bar"></span>
@@ -89,7 +84,6 @@
         <div class="typewriter" id="typewriter"></div>
       </div>
 
-      <!-- processing -->
       <div class="processing-ui" id="processing-ui">
         <div class="spinner"></div>
         <span class="processing-text">Анализирую...</span>

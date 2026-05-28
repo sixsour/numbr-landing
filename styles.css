@@ -10,8 +10,8 @@
 :root {
   --bg: hsl(230, 22%, 7%);
   --card-bg: hsl(230, 20%, 11%);
-  --primary: hsl(253, 100%, 68%);       /* #7B61FF */
-  --accent: hsl(316, 78%, 63%);         /* #D85FA0 */
+  --primary: hsl(253, 100%, 68%);
+  --accent: hsl(316, 78%, 63%);
   --gradient: linear-gradient(135deg, #7B61FF, #D85FA0);
   --text: #fff;
   --text-muted: rgba(255,255,255,0.5);
@@ -33,9 +33,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* ══════════════════════════════════════════════
-   HERO
-══════════════════════════════════════════════ */
 .hero {
   min-height: 100dvh;
   display: flex;
@@ -78,7 +75,6 @@ body {
   animation: fadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
 }
 
-/* Mic in hero */
 .mic-wrapper {
   position: relative;
   width: 100px;
@@ -113,7 +109,6 @@ body {
   filter: drop-shadow(0 0 12px hsl(253 100% 68% / 0.6));
 }
 
-/* Scroll hint */
 .scroll-hint {
   position: absolute;
   bottom: 2.5rem;
@@ -122,7 +117,6 @@ body {
   color: var(--text-faint);
   width: 24px;
   height: 24px;
-  animation: bounce 1.8s ease-in-out infinite;
   opacity: 0;
   animation: bounce 1.8s ease-in-out infinite, fadeUp 0.8s 1s forwards;
 }
@@ -132,9 +126,6 @@ body {
   height: 100%;
 }
 
-/* ══════════════════════════════════════════════
-   VOICE SECTION
-══════════════════════════════════════════════ */
 .voice-section {
   min-height: 120vh;
   display: flex;
@@ -170,7 +161,6 @@ body {
   justify-content: center;
 }
 
-/* Ripple rings */
 .ripple-ring {
   position: absolute;
   border-radius: 50%;
@@ -184,10 +174,9 @@ body {
 }
 
 .ring-1 { width: 120px; height: 120px; }
-.ring-2 { width: 160px; height: 160px; animation-delay: 0.2s !important; }
-.ring-3 { width: 200px; height: 200px; animation-delay: 0.4s !important; }
+.ring-2 { width: 160px; height: 160px; }
+.ring-3 { width: 200px; height: 200px; }
 
-/* Stage mic */
 .stage-mic {
   position: relative;
   width: 80px;
@@ -205,7 +194,7 @@ body {
   inset: -30px;
   border-radius: 50%;
   background: radial-gradient(circle, hsl(253 100% 68% / 0.3) 0%, transparent 70%);
-  transition: opacity 0.5s;
+  transition: background 0.5s;
   animation: micPulse 2.8s ease-in-out infinite;
 }
 
@@ -231,7 +220,6 @@ body {
   transform: scale(1.6);
 }
 
-/* Recording UI */
 .recording-ui {
   position: absolute;
   bottom: -80px;
@@ -250,7 +238,6 @@ body {
   opacity: 1;
 }
 
-/* Waveform */
 .waveform {
   display: flex;
   align-items: center;
@@ -264,7 +251,6 @@ body {
   background: var(--gradient);
   border-radius: 2px;
   height: 8px;
-  animation: none;
 }
 
 .waveform.animating .bar { animation: barPulse 0.8s ease-in-out infinite alternate; }
@@ -284,7 +270,6 @@ body {
   font-style: italic;
 }
 
-/* Processing */
 .processing-ui {
   position: absolute;
   bottom: -80px;
@@ -315,9 +300,6 @@ body {
   color: var(--text-muted);
 }
 
-/* ══════════════════════════════════════════════
-   RESULT SECTION
-══════════════════════════════════════════════ */
 .result-section {
   min-height: 80vh;
   display: flex;
@@ -452,9 +434,6 @@ body {
   transform: translateY(-1px);
 }
 
-/* ══════════════════════════════════════════════
-   CATEGORIES SECTION
-══════════════════════════════════════════════ */
 .categories-section {
   padding: 6rem 0;
   overflow: hidden;
@@ -553,9 +532,6 @@ body {
   color: var(--text);
 }
 
-/* ══════════════════════════════════════════════
-   CTA SECTION
-══════════════════════════════════════════════ */
 .cta-section {
   min-height: 100dvh;
   display: flex;
@@ -566,7 +542,6 @@ body {
   padding: 4rem 1.5rem;
 }
 
-/* Blob background */
 .cta-blobs {
   position: absolute;
   inset: 0;
@@ -680,9 +655,6 @@ body {
   color: var(--text-muted);
 }
 
-/* ══════════════════════════════════════════════
-   FOOTER
-══════════════════════════════════════════════ */
 .footer {
   border-top: 1px solid rgba(255,255,255,0.06);
   padding: 1.5rem;
@@ -728,9 +700,6 @@ body {
   font-size: 0.875rem;
 }
 
-/* ══════════════════════════════════════════════
-   KEYFRAMES
-══════════════════════════════════════════════ */
 @keyframes fadeUp {
   to {
     opacity: 1;
@@ -768,9 +737,6 @@ body {
   66% { transform: translate(-20px, 15px) scale(0.95); }
 }
 
-/* ══════════════════════════════════════════════
-   REDUCED MOTION
-══════════════════════════════════════════════ */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
@@ -788,9 +754,6 @@ body {
   }
 }
 
-/* ══════════════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════════════ */
 @media (min-width: 768px) {
   .voice-stage {
     width: 360px;
