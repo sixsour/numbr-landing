@@ -1,0 +1,29 @@
+---
+import { product } from '../config/product';
+
+interface Props {
+  href?: string;
+  kind?: 'primary' | 'secondary';
+  label?: string;
+  external?: boolean;
+}
+
+const {
+  href = product.botUrl,
+  kind = 'primary',
+  label = 'Открыть в Telegram',
+  external = true,
+} = Astro.props;
+---
+
+<a
+  class:list={['button', `button--${kind}`]}
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+>
+  <svg aria-hidden="true" viewBox="0 0 24 24">
+    <path d="M21 3 9.8 14.2M21 3l-7.1 18-4.1-6.8L3 10.1 21 3Z" />
+  </svg>
+  <span>{label}</span>
+</a>

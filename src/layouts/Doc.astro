@@ -1,0 +1,25 @@
+---
+import Base from './Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Base title={`${title} — Numbr`} description={description}>
+  <Header compact />
+  <main class="doc shell">
+    <a class="doc__back" href="/">← На главную</a>
+    <article>
+      <p class="eyebrow">Документы</p>
+      <h1>{title}</h1>
+      <slot />
+    </article>
+  </main>
+  <Footer />
+</Base>

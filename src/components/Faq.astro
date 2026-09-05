@@ -1,0 +1,18 @@
+---
+import { faqs } from '../config/product';
+---
+
+<section class="section shell faq" id="faq">
+  <div class="section-heading">
+    <p class="eyebrow">Коротко о важном</p>
+    <h2>Вопросы и ответы</h2>
+  </div>
+  <div class="faq__list">
+    {faqs.map(({ question, answer }) => (
+      <details>
+        <summary>{question}<span aria-hidden="true">+</span></summary>
+        <p>{answer}</p>
+      </details>
+    ))}
+  </div>
+</section>

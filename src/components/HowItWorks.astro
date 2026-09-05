@@ -1,0 +1,25 @@
+---
+const steps = [
+  ['01', 'Скажите как есть', '«Потратил 500 рублей на продукты». Не нужно вспоминать команды или выбирать поля.'],
+  ['02', 'Проверьте запись', 'Numbr распознает сумму и назначение, затем предложит подходящую категорию.'],
+  ['03', 'Смотрите картину', 'Расходы складываются в наглядную статистику — по дням, месяцам и категориям.'],
+];
+---
+
+<section class="section section--ink" id="how">
+  <div class="shell">
+    <div class="section-heading section-heading--light">
+      <p class="eyebrow">Как работает</p>
+      <h2>Быстрее, чем открывать банковское приложение.</h2>
+    </div>
+    <ol class="steps">
+      {steps.map(([number, title, text]) => (
+        <li>
+          <span class="steps__number">{number}</span>
+          <h3>{title}</h3>
+          <p>{text}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>

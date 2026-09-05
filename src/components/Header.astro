@@ -1,0 +1,24 @@
+---
+import Logo from './Logo.astro';
+import Button from './Button.astro';
+
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<header class:list={['header', { 'header--compact': compact }]}>
+  <div class="header__inner shell">
+    <Logo compact={compact} />
+    {!compact && (
+      <nav class="header__nav" aria-label="Основная навигация">
+        <a href="#how">Как работает</a>
+        <a href="#features">Возможности</a>
+        <a href="#faq">Вопросы</a>
+      </nav>
+    )}
+    <Button kind="secondary" label="Попробовать" />
+  </div>
+</header>

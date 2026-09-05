@@ -1,0 +1,16 @@
+---
+import Logo from './Logo.astro';
+import { product } from '../config/product';
+---
+
+<footer class="footer">
+  <div class="footer__inner shell">
+    <Logo compact />
+    <div class="footer__links">
+      <a href={product.botUrl} target="_blank" rel="noopener noreferrer">{product.botHandle}</a>
+      <a href="/privacy">Конфиденциальность</a>
+      <a href="/terms">Условия</a>
+    </div>
+    <span>© {new Date().getFullYear()} Numbr</span>
+  </div>
+</footer>

@@ -1,0 +1,26 @@
+---
+import Button from './Button.astro';
+import VoiceDemo from './VoiceDemo.astro';
+---
+
+<section class="hero shell">
+  <div class="hero__copy">
+    <p class="eyebrow"><span></span> Личные расходы без таблиц</p>
+    <h1>Расходы — <em>словами.</em><br />Остальное считает Numbr.</h1>
+    <p class="hero__lead">
+      Отправьте голосовое или текст в Telegram. Numbr найдёт сумму, выберет категорию и соберёт понятную статистику.
+    </p>
+    <div class="hero__actions">
+      <Button />
+      <span>Бесплатный старт<br />без отдельного приложения</span>
+    </div>
+  </div>
+  <div class="hero__demo">
+    <VoiceDemo />
+  </div>
+  <div class="hero__ledger" aria-label="Ключевые преимущества">
+    <span><b>1 сообщение</b> на новый расход</span>
+    <span><b>20+ категорий</b> определяются автоматически</span>
+    <span><b>Всегда рядом</b> в привычном Telegram</span>
+  </div>
+</section>

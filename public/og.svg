@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f5f3ed"/>
+  <path d="M0 80h1200M0 160h1200M0 240h1200M0 320h1200M0 400h1200M0 480h1200M0 560h1200" stroke="#17151c" stroke-opacity=".055"/>
+  <circle cx="1055" cy="72" r="220" fill="#c9bfff"/>
+  <text x="70" y="90" fill="#17151c" font-family="Arial,sans-serif" font-size="40" font-weight="800" letter-spacing="-2">numbr<tspan fill="#6e51e6">.</tspan></text>
+  <text x="70" y="258" fill="#17151c" font-family="Arial,sans-serif" font-size="78" font-weight="800" letter-spacing="-5">Расходы — словами.</text>
+  <text x="70" y="344" fill="#563bbf" font-family="Arial,sans-serif" font-size="78" font-weight="800" letter-spacing="-5">Остальное считает Numbr.</text>
+  <g transform="translate(712 408) rotate(-2)">
+    <rect width="405" height="112" rx="24" fill="#17151c"/>
+    <rect x="22" y="25" width="62" height="62" rx="18" fill="#6e51e6"/>
+    <path d="M48 43v24m-8-18a8 8 0 0 0 16 0m-8 18v7" stroke="white" stroke-width="4" stroke-linecap="round"/>
+    <text x="105" y="53" fill="white" font-family="Arial,sans-serif" font-size="17" font-weight="700">Пятьсот на продукты</text>
+    <text x="105" y="80" fill="#c9bfff" font-family="Arial,sans-serif" font-size="15">🥑 Продукты</text>
+    <text x="305" y="69" fill="white" font-family="Arial,sans-serif" font-size="21" font-weight="700">−500 ₽</text>
+  </g>
+  <text x="70" y="550" fill="#5f5b66" font-family="Arial,sans-serif" font-size="25">Учёт расходов голосом в Telegram</text>
+</svg>
