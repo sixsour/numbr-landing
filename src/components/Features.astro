@@ -1,0 +1,50 @@
+---
+const categories = [
+  ['🥑', 'Продукты', '28%'],
+  ['☕', 'Кафе', '16%'],
+  ['🚕', 'Транспорт', '12%'],
+  ['🏠', 'Дом', '22%'],
+];
+---
+
+<section class="section shell" id="features">
+  <div class="section-heading">
+    <p class="eyebrow">Без ручной рутины</p>
+    <h2>Не просто список трат.<br />Способ замечать привычки.</h2>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature feature--wide feature--chart">
+      <div>
+        <span class="feature__tag">Сводка месяца</span>
+        <h3>Понятно, куда ушли деньги</h3>
+        <p>Numbr группирует расходы и показывает соотношение категорий без таблиц и формул.</p>
+      </div>
+      <div class="category-list" aria-label="Пример распределения расходов">
+        {categories.map(([icon, name, share], index) => (
+          <div class="category-row">
+            <span>{icon}</span>
+            <strong>{name}</strong>
+            <i style={`--width:${share}; --delay:${index * 80}ms`}></i>
+            <b>{share}</b>
+          </div>
+        ))}
+      </div>
+    </article>
+
+    <article class="feature feature--violet">
+      <span class="feature__tag">Распознавание</span>
+      <div class="feature__quote">«Такси до дома<br />сорок пять рублей»</div>
+      <div class="feature__result"><span>🚕</span> Транспорт <b>−45 ₽</b></div>
+    </article>
+
+    <article class="feature feature--mint">
+      <span class="feature__tag">Всё в одном месте</span>
+      <h3>Один чат для записей и статистики</h3>
+      <p>Не нужно менять привычку: пишите Numbr так же, как отправляете сообщения друзьям.</p>
+      <div class="message-stack" aria-hidden="true">
+        <span>Кофе 8 рублей</span><span>Обед 27 рублей</span><span>Покажи траты за неделю</span>
+      </div>
+    </article>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+---
+interface Props {
+  compact?: boolean;
+}
+
+const { compact = false } = Astro.props;
+---
+
+<a class:list={['logo', { 'logo--compact': compact }]} href="/" aria-label="Numbr — на главную">
+  <span>numbr</span><i aria-hidden="true">.</i>
+</a>

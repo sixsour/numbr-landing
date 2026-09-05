@@ -1,0 +1,67 @@
+---
+import { expenseExamples } from '../config/product';
+---
+
+<div class="voice-demo" data-voice-demo>
+  <div class="voice-demo__topline">
+    <span class="voice-demo__status"><i></i> NUMBR В TELEGRAM</span>
+    <span class="voice-demo__time">сейчас</span>
+  </div>
+
+  <div class="voice-note">
+    <button class="voice-note__play" type="button" aria-label="Воспроизвести пример" data-demo-trigger>
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="m9 7 8 5-8 5V7Z" />
+      </svg>
+    </button>
+    <div class="voice-note__body">
+      <div class="wave" aria-hidden="true">
+        {Array.from({ length: 22 }, (_, index) => <i style={`--bar:${(index * 7) % 13}`}></i>)}
+      </div>
+      <span data-phrase>{expenseExamples[0].phrase}</span>
+    </div>
+    <span class="voice-note__duration">0:03</span>
+  </div>
+
+  <div class="demo-arrow" aria-hidden="true">
+    <span>распознано</span>
+    <svg viewBox="0 0 70 20"><path d="M1 10h66m-8-8 8 8-8 8" /></svg>
+  </div>
+
+  <div class="expense" aria-live="polite">
+    <span class="expense__icon" data-icon>{expenseExamples[0].icon}</span>
+    <span class="expense__meta">
+      <strong data-category>{expenseExamples[0].category}</strong>
+      <small>Сегодня · расход</small>
+    </span>
+    <strong class="expense__amount" data-amount>− {expenseExamples[0].amount}</strong>
+  </div>
+
+  <p class="voice-demo__hint">Нажмите на голосовое — покажем другой пример</p>
+</div>
+
+<script>
+  import { expenseExamples } from '../config/product';
+
+  document.querySelectorAll<HTMLElement>('[data-voice-demo]').forEach((demo) => {
+    const trigger = demo.querySelector<HTMLButtonElement>('[data-demo-trigger]');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let current = 0;
+
+    trigger?.addEventListener('click', () => {
+      current = (current + 1) % expenseExamples.length;
+      const example = expenseExamples[current];
+      demo.classList.remove('voice-demo--changed');
+      void demo.offsetWidth;
+      if (!reduceMotion) demo.classList.add('voice-demo--changed');
+      const phrase = demo.querySelector<HTMLElement>('[data-phrase]');
+      const icon = demo.querySelector<HTMLElement>('[data-icon]');
+      const category = demo.querySelector<HTMLElement>('[data-category]');
+      const amount = demo.querySelector<HTMLElement>('[data-amount]');
+      if (phrase) phrase.textContent = example.phrase;
+      if (icon) icon.textContent = example.icon;
+      if (category) category.textContent = example.category;
+      if (amount) amount.textContent = `− ${example.amount}`;
+    });
+  });
+</script>

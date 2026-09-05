@@ -1,0 +1,24 @@
+---
+const items = [
+  ['Контроль до сохранения', 'Numbr показывает распознанную запись, чтобы вы проверили сумму и категорию.'],
+  ['Без нового приложения', 'Работает в Telegram — на телефоне и компьютере, где вы уже авторизованы.'],
+  ['Данные без рекламы', 'Информация о расходах используется для работы сервиса, а не для рекламных профилей.'],
+];
+---
+
+<section class="section section--rules">
+  <div class="shell rules">
+    <div class="section-heading">
+      <p class="eyebrow">Спокойный учёт</p>
+      <h2>Финансы без чувства, что вас проверяют.</h2>
+    </div>
+    <div class="rules__list">
+      {items.map(([title, text], index) => (
+        <article>
+          <span>0{index + 1}</span>
+          <div><h3>{title}</h3><p>{text}</p></div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
