@@ -59,6 +59,11 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.metrika-pixel {
+  position: absolute;
+  left: -9999px;
+}
+
 a {
   color: inherit;
 }
